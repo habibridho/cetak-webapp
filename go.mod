@@ -1,4 +1,4 @@
-module github.com/cetak-webapp
+module github.com/habibridho/cetak-webapp
 
 go 1.14
 

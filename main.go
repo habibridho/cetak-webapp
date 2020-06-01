@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/cetak-webapp/public/views"
+	"github.com/habibridho/cetak-webapp/public/views"
 	"github.com/labstack/echo"
 	"log"
 	"net/http"
