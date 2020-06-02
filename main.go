@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/habibridho/cetak-webapp/public/views"
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 	"log"
 	"net/http"
 )
@@ -10,6 +11,11 @@ import (
 func main() {
 	e := echo.New()
 	e.Renderer = views.NewRenderer()
+
+	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
+		Root: "public/static",
+	}))
+
 	e.GET("/", func(ctx echo.Context) error {
 		err := ctx.Render(http.StatusOK, "home", nil)
 		if err != nil {
