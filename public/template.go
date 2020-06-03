@@ -1,4 +1,4 @@
-package views
+package public
 
 import (
 	"github.com/labstack/echo"
@@ -12,7 +12,7 @@ type Template struct {
 
 func NewRenderer() *Template {
 	return &Template{
-		templates: template.Must(template.ParseGlob("public/views/*.html")),
+		templates: template.Must(template.ParseGlob("public/*.html")),
 	}
 }
 

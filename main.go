@@ -1,19 +1,26 @@
 package main
 
 import (
-	"github.com/habibridho/cetak-webapp/public/views"
+	"github.com/habibridho/cetak-webapp/public"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"log"
 	"net/http"
+	"strings"
 )
 
 func main() {
 	e := echo.New()
-	e.Renderer = views.NewRenderer()
+	e.Renderer = public.NewRenderer()
 
 	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
-		Root: "public/static",
+		Root: "public",
+		Skipper: func(ctx echo.Context) bool {
+			if strings.HasSuffix(ctx.Path(), ".html") {
+				return true
+			}
+			return false
+		},
 	}))
 
 	e.GET("/", func(ctx echo.Context) error {
