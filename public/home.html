@@ -5,21 +5,41 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/cetak.css">
+
+    <script src="https://unpkg.com/wired-elements@latest/lib/wired-elements-bundled.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
     <title>Cetak</title>
 </head>
 <body>
-<div>
-    <table>
-        <tr>
-            <td>Turn this</td>
-            <td>Into this</td>
-        </tr>
-        <tr>
-            <td>{{"Hello {{.Text}}"}}</td>
-            <td>Hello World!</td>
-        </tr>
-    </table>
-    <p>in your docx file.</p>
+<div class="full-screen">
+    <div class="home-title">
+        <h1>CETAK</h1>
+    </div>
+    <div class="home-body">
+        <div class="home-content">
+            <table class="comparison-table">
+                <tr>
+                    <td>Turn this</td>
+                    <td>Into this</td>
+                </tr>
+                <tr>
+                    <td>{{"Hello {{ .Text }}"}}</td>
+                    <td>Hello World!</td>
+                </tr>
+            </table>
+            <p>in your docx file.</p>
+            <div class="home-action">
+                <wired-button>Read Tutorial</wired-button>
+                <wired-button>Start Cetak-ing</wired-button>
+            </div>
+        </div>
+        <div class="home-links">
+            <a href="https://github.com/habibridho/cetak-webapp" target="_blank">
+                <ion-icon name="logo-github" size="large"></ion-icon>
+            </a>
+        </div>
+    </div>
 </div>
 </body>
 </html>
