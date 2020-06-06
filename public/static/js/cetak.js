@@ -1,28 +1,40 @@
 $(function () {
-    const inputTempaltePath = $('#inputTemplatePath');
-    const inputTemplate = $('#inputTemplateFile');
-    const uploadTemplateButton = $('#uploadTemplate');
+    const uploadSelectors = [{
+        inputPath: '#inputTemplatePath',
+        input: '#inputTemplateFile',
+        uploadButton: '#uploadTemplate',
+    }, {
+        inputPath: '#inputDataPath',
+        input: '#inputDataFile',
+        uploadButton: '#uploadData',
+    }]
 
-    if (inputTempaltePath) {
-        inputTempaltePath.click(function () {
-            inputTemplate.trigger('click');
+    uploadSelectors.forEach(function (selector) {
+        const inputPath = $(selector.inputPath);
+        const input = $(selector.input);
+        const uploadButton = $(selector.uploadButton);
+
+        if (inputPath) {
+            inputPath.click(function () {
+                input.trigger('click');
+            });
+        }
+
+        input.change(function () {
+            inputPath.text(input.val());
+            if (input.val() === "") {
+                uploadButton.removeClass('hidden');
+                inputPath.addClass('hidden');
+            } else {
+                uploadButton.addClass('hidden');
+                inputPath.removeClass('hidden');
+            }
         });
-    }
 
-    inputTemplate.change(function () {
-        inputTempaltePath.text(inputTemplate.val());
-        if (inputTemplate.val() === "") {
-            uploadTemplateButton.removeClass('hidden');
-            inputTempaltePath.addClass('hidden');
-        } else {
-            uploadTemplateButton.addClass('hidden');
-            inputTempaltePath.removeClass('hidden');
+        if (uploadButton) {
+            uploadButton.click(function () {
+                input.trigger('click');
+            });
         }
     });
-
-    if (uploadTemplateButton) {
-        uploadTemplateButton.click(function () {
-            inputTemplate.trigger('click');
-        });
-    }
 });
