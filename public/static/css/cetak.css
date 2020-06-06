@@ -63,6 +63,10 @@ body {
     color: whitesmoke;
 }
 
+a {
+    color: whitesmoke;
+}
+
 a.button-link {
     color: whitesmoke;
 }
@@ -85,4 +89,8 @@ a.button-link:visited {
 
 .form-submit {
     margin-top: 32px;
+}
+
+.hidden {
+    display: none;
 }
